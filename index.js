@@ -53,6 +53,10 @@ function renderGame() {
         message = "You're out of the game!"
         isAlive = false
     }
+    if(player.chips === 0){
+        message = "You can't play further"
+        isAlive = false
+    }
     messageEl.textContent = message
 }
 

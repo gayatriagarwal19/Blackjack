@@ -24,10 +24,12 @@ function getRandomCard() {
     } else {
         return randomNumber
     }
+    //console.log(randomNumber)
 }
 
 function startGame() {
     isAlive = true
+    hasBlackJack = false
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
@@ -44,6 +46,7 @@ function renderGame() {
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
+        hasBlackJack = false
     } else if (sum === 21) {
         message = "You've got Blackjack!"
         player.chips += 50
@@ -68,6 +71,6 @@ function newCard() {
         player.chips -= 10
         playerEl.textContent = player.name + ": $" + player.chips
         cards.push(card)
-        renderGame()        
+        renderGame()       
     }
 }
